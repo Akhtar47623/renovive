@@ -21,7 +21,7 @@ const HeroSection = () => {
       <div className="relative container mx-auto px-4 pt-16">
         <div className="max-w-2xl animate-fade-in">
           <p className="text-accent font-medium mb-4 tracking-wider uppercase text-sm">
-            Premium Renovation Services
+            Premiummmm Renovation Services
           </p>
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary-foreground leading-tight mb-6">
             Perfect Best Residence That Aligns With Your Lifestyle
