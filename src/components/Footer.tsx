@@ -1,44 +1,64 @@
-import { Link } from "react-router-dom";
-
+import heroBg from "@/assets/hero-home.png";
 const Footer = () => {
+  const navLinks = ["About Us", "Properties", "Agents", "Blog", "Contact Us"];
+  const socialLinks = ["Facebook", "Instagram", "LinkedIn"];
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div>
-            <h3 className="font-serif text-2xl font-bold tracking-wider mb-4">RENOVIVE</h3>
-            <p className="text-primary-foreground/60 text-sm leading-relaxed">
-              Transforming spaces into extraordinary living experiences with expert renovation services.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/60">
-              <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-accent transition-colors">Contact Us</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Services</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/60">
-              <li>Kitchen Renovation</li>
-              <li>Bathroom Remodeling</li>
-              <li>Full Home Renovation</li>
-              <li>Interior Design</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/60">
-              <li>info@renovive.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>123 Renovation St, Suite 100</li>
-            </ul>
+    <footer className="bg-background  overflow-hidden">
+      <div className="relative rounded-3xl overflow-hidden min-h-[540px] flex flex-col justify-end bg-neutral-900">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+
+        <div className="absolute top-0 left-0 right-0 px-10 pt-8 z-10 pointer-events-none select-none">
+          <span className="text-white/90 font-light tracking-[0.12em] text-[clamp(56px,11vw,110px)] leading-none">
+            RENOVIVE
+          </span>
+        </div>
+
+        <div className="relative z-10 mx-6 mb-6 bg-white rounded-2xl px-7 py-4 flex items-center justify-between flex-wrap gap-4">
+          <nav className="flex items-center flex-wrap gap-x-5">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="text-sm text-foreground/85 hover:text-foreground transition-colors"
+              >
+                {link}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-5">
+            {socialLinks.map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="text-sm text-foreground/85 hover:text-foreground transition-colors"
+              >
+                {link}
+              </a>
+            ))}
           </div>
         </div>
-        <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center text-sm text-primary-foreground/40">
-          © {new Date().getFullYear()} Renovive. All rights reserved.
+
+        <div className="relative z-10 mx-6 pb-1 flex items-center justify-between flex-wrap gap-2">
+          <span className="text-xs text-white/50">
+            ©2026 Renovive. All rights are reserved
+          </span>
+          <div className="flex items-center gap-4">
+            <a
+              href="#"
+              className="text-xs text-white/50 hover:text-white/80 transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="text-xs text-white/50 hover:text-white/80 transition-colors"
+            >
+              Terms & Conditions
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,31 +1,98 @@
-import agent1 from "@/assets/agent-1.jpg";
-import agent2 from "@/assets/agent-2.jpg";
-import agent3 from "@/assets/agent-3.jpg";
-import agent4 from "@/assets/agent-4.jpg";
+import agent1 from "@/assets/agent1.png"; // replace with your actual images
+import agent2 from "@/assets/agent2.png";
+import agent3 from "@/assets/agent3.png";
+import { ArrowUpRight, Phone, Mail } from "lucide-react";
 
 const agents = [
-  { image: agent1, name: "James Mitchell", role: "Senior Architect" },
-  { image: agent2, name: "Sarah Rodriguez", role: "Interior Designer" },
-  { image: agent3, name: "David Chen", role: "Project Manager" },
-  { image: agent4, name: "Emily Parker", role: "Design Consultant" },
+  {
+    id: "01",
+    name: "Wade Warren",
+    role: "Real Estate Agent",
+    image: agent1,
+  },
+  {
+    id: "02",
+    name: "Jenny Wilson",
+    role: "Real Estate Agent",
+    image: agent2,
+  },
+  {
+    id: "03",
+    name: "Devon Lane",
+    role: "Real Estate Agent",
+    image: agent3,
+  },
 ];
 
 const AgentsSection = () => {
   return (
-    <section className="py-20 bg-secondary">
+    <section className="bg-background py-24 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-14">
-          <p className="text-accent font-medium text-sm uppercase tracking-wider mb-2">Our Team</p>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">Our Agents</h2>
+        {/* ── Header block — mirrors PropertiesSection header style ── */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-14 gap-6">
+          <div className="max-w-2xl">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
+              Our Agents
+            </h2>
+            <p className="text-foreground/50 text-sm leading-relaxed max-w-sm">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit lorem
+              sagittis, proin ut lectus sed ut.
+            </p>
+          </div>
+
+          {/* View All pill button — top-right as in screenshot */}
+          <div className="flex-shrink-0 md:pt-2">
+            <button className="flex items-center gap-2 border border-foreground/20 rounded-full px-5 py-2.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-colors duration-200 group">
+              View All
+              <span className="w-6 h-6 rounded-full border border-foreground/30 flex items-center justify-center group-hover:border-background/30 transition-colors">
+                <ArrowUpRight size={13} />
+              </span>
+            </button>
+          </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        {/* ── 3-column agent grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
           {agents.map((agent) => (
-            <div key={agent.name} className="text-center group">
-              <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden mb-4">
-                <img src={agent.image} alt={agent.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div key={agent.id} className="group cursor-pointer">
+              {/* Agent portrait */}
+              <div className="relative rounded-xl overflow-hidden mb-4 aspect-[3/4]">
+                <img
+                  src={agent.image}
+                  alt={agent.name}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display =
+                      "none";
+                  }}
+                />
+                {/* Fallback gradient when image is missing */}
+                <div className="absolute inset-0 bg-gradient-to-br from-stone-700 via-stone-600 to-stone-900 -z-10" />
+
+                {/* Hover overlay with contact icons */}
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
+                <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="w-8 h-8 rounded-full bg-background/90 flex items-center justify-center hover:bg-background transition-colors">
+                    <Phone size={13} className="text-foreground" />
+                  </span>
+                  <span className="w-8 h-8 rounded-full bg-background/90 flex items-center justify-center hover:bg-background transition-colors">
+                    <Mail size={13} className="text-foreground" />
+                  </span>
+                </div>
               </div>
-              <h3 className="font-serif font-semibold text-foreground">{agent.name}</h3>
-              <p className="text-muted-foreground text-sm">{agent.role}</p>
+
+              {/* Name row — name left, arrow icon right */}
+              <div className="flex items-center justify-between mb-1">
+                <h3 className="font-serif text-lg font-semibold text-foreground leading-snug">
+                  {agent.name}
+                </h3>
+                <span className="w-7 h-7 rounded-full border border-foreground/25 flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-200">
+                  <ArrowUpRight size={13} />
+                </span>
+              </div>
+
+              {/* Role */}
+              <p className="text-sm text-foreground/50">{agent.role}</p>
             </div>
           ))}
         </div>
