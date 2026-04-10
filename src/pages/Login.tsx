@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-home.jpg";
 
 const LoginPage = () => {
@@ -11,18 +12,21 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
       toast.error("Please fill in all fields");
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    setLoading(false);
+    if (error) {
+      toast.error(error.message);
+    } else {
       toast.success("Signed in successfully!");
-      navigate("/");
-    }, 1000);
+      navigate("/dashboard");
+    }
   };
 
   return (
@@ -48,9 +52,6 @@ const LoginPage = () => {
             <div>
               <label className="text-sm font-medium text-foreground mb-1 block">Password</label>
               <Input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className="bg-card" />
-            </div>
-            <div className="flex justify-end">
-              <Link to="/forgot-password" className="text-sm text-accent hover:underline">Forgot Password?</Link>
             </div>
             <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
               {loading ? "Signing in..." : "Sign In"}
