@@ -4,11 +4,17 @@ import { prisma } from "../db/index.js";
 import { HttpError } from "../utils/httpError.js";
 import type { CreateCheckoutSessionDto } from "../dto/billing/create-checkout-session.dto.js";
 
+function getCurrentPeriodEndSeconds(value: unknown): number | null {
+  const seconds = (value as { current_period_end?: unknown } | null | undefined)?.current_period_end;
+  return typeof seconds === "number" ? seconds : null;
+}
+
 function getStripe(): Stripe {
   if (!env.STRIPE_SECRET_KEY) {
     throw new HttpError(500, "Stripe is not configured");
   }
-  return new Stripe(env.STRIPE_SECRET_KEY, { apiVersion: "2024-06-20" });
+  // Keep this in sync with the installed Stripe SDK typings.
+  return new Stripe(env.STRIPE_SECRET_KEY, { apiVersion: "2026-03-25.dahlia" });
 }
 
 function priceIdForPlan(plan: CreateCheckoutSessionDto["plan"]): string {
@@ -107,6 +113,8 @@ export const billingService = {
         const subscription = await stripe.subscriptions.retrieve(subscriptionId);
 
         const shouldActivate = isActiveSubscriptionStatus(subscription.status);
+        const currentPeriodEndSeconds = getCurrentPeriodEndSeconds(subscription);
+        if (!currentPeriodEndSeconds) break;
 
         await prisma.user.update({
           where: { id: userId },
@@ -115,7 +123,7 @@ export const billingService = {
             stripeCustomerId: customerId,
             stripeSubscriptionId: subscriptionId,
             stripeSubscriptionStatus: subscription.status,
-            stripeCurrentPeriodEnd: new Date(subscription.current_period_end * 1000),
+            stripeCurrentPeriodEnd: new Date(currentPeriodEndSeconds * 1000),
           },
         });
         break;
@@ -124,7 +132,8 @@ export const billingService = {
       case "invoice.paid":
       case "invoice.payment_succeeded": {
         const invoice = event.data.object as Stripe.Invoice;
-        const subscriptionId = typeof invoice.subscription === "string" ? invoice.subscription : null;
+        const subscriptionRaw = (invoice as unknown as { subscription?: unknown }).subscription;
+        const subscriptionId = typeof subscriptionRaw === "string" ? subscriptionRaw : null;
         if (!subscriptionId) break;
 
         const subscription = await stripe.subscriptions.retrieve(subscriptionId);
@@ -133,6 +142,8 @@ export const billingService = {
         const customerId = typeof subscription.customer === "string" ? subscription.customer : null;
 
         if (!plan) break;
+        const currentPeriodEndSeconds = getCurrentPeriodEndSeconds(subscription);
+        if (!currentPeriodEndSeconds) break;
 
         const where = userIdFromMeta ? { id: userIdFromMeta } : { stripeSubscriptionId: subscription.id };
 
@@ -144,7 +155,7 @@ export const billingService = {
             stripeCustomerId: customerId ?? undefined,
             stripeSubscriptionId: subscription.id,
             stripeSubscriptionStatus: subscription.status,
-            stripeCurrentPeriodEnd: new Date(subscription.current_period_end * 1000),
+            stripeCurrentPeriodEnd: new Date(currentPeriodEndSeconds * 1000),
           },
         });
         break;
@@ -155,13 +166,16 @@ export const billingService = {
         const sub = event.data.object as Stripe.Subscription;
         const userIdFromMeta = sub.metadata?.userId;
         const where = userIdFromMeta ? { id: userIdFromMeta } : { stripeSubscriptionId: sub.id };
+        const currentPeriodEndSeconds = getCurrentPeriodEndSeconds(sub);
 
         await prisma.user.updateMany({
           where,
           data: {
             stripeSubscriptionId: sub.id,
             stripeSubscriptionStatus: sub.status,
-            stripeCurrentPeriodEnd: new Date(sub.current_period_end * 1000),
+            ...(currentPeriodEndSeconds
+              ? { stripeCurrentPeriodEnd: new Date(currentPeriodEndSeconds * 1000) }
+              : {}),
           },
         });
         break;

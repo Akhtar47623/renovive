@@ -7,20 +7,46 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node dependencies
 node_modules
+
+# Build output (frontend/backend)
 dist
 dist-ssr
+build
+.next
+out
+.nuxt
+.svelte-kit
+
+# Test/coverage output
+coverage
+.nyc_output
+
+# Tooling caches
+.turbo
+.cache
+.parcel-cache
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# Local environment files (keep examples committed)
 *.local
-.env
-backend/.env
-backend/prisma/dev.db
-backend/prisma/dev.db-journal
+.env*
+!.env.example
+!.env.*.example
+
+# Local databases (Prisma/SQLite)
+backend/prisma/*.db
+backend/prisma/*.db-journal
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
