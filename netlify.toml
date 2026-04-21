@@ -1,7 +1,8 @@
 [build]
   base = "frontend"
-  command = "npm run build"
+  command = "npm i -g npm@9.9.4 && npm ci && npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
+  NETLIFY_SKIP_INSTALL = "true"
