@@ -4,15 +4,18 @@
     "noImplicitAny": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "jsx": "react-jsx",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "paths": {
       "@/*": [
         "./src/*"
       ]
     },
     "skipLibCheck": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "types": ["vite/client"]
   },
-  "files": [],
+  "include": ["src"],
   "references": [
     {
       "path": "./tsconfig.app.json"
