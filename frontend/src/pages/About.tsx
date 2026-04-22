@@ -22,7 +22,7 @@ const AboutPage = () => {
           <img
             src={heroImage}
             alt="About Renovive"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
         </div>

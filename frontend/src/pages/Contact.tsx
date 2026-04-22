@@ -31,7 +31,7 @@ const ContactPage = () => {
         <img
           src={heroBg}
           alt="Modern architectural home surrounded by lush greenery"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-fill object-center"
         />
         {/* Dark gradient overlay — heavier at bottom where text sits */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
