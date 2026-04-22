@@ -6,12 +6,12 @@ const MissionSection = () => {
     <section className="bg-background py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl">
-          <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground">
+          <h2 className="font-sans font-semibold text-[36px] leading-[129%] tracking-[-0.02em] text-foreground md:text-display-lg">
             We Are on A Mission to Change View
             <br />
             of Real Estate Field
           </h2>
-          <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50 mt-3 max-w-2xl">
+          <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 mt-3 max-w-2xl md:text-text-md">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit lorem
             sagittis, proin ut lectus sed ut. Enim egestas enim id duis.
           </p>
