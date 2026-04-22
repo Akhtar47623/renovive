@@ -20,7 +20,7 @@ const AboutSection = ({ imageSrc, showImage = true }: AboutSectionProps) => {
     <section className="bg-background py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* ── Top row: label + text (mirrors your screenshot layout) ── */}
-        <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-16 mb-10 md:mb-12 rounded-sm p-8">
+        <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-16 mb-10 md:mb-12">
           <div>
             <span className="inline-block whitespace-nowrap text-display-lg tracking-[-0.02em] font-semibold text-foreground rounded-sm py-1">
               About Us

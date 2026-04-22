@@ -28,7 +28,7 @@ const ServicesSection = () => {
     <section className="bg-background py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* ── Header block — dashed border matching your Figma ── */}
-        <div className=" rounded-sm p-8 mb-8 md:mb-10 max-w-2xl">
+        <div className="mb-8 md:mb-10 max-w-2xl">
           <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
             Benefits You Get When You Use Our Services
           </h2>
