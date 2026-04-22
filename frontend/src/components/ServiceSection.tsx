@@ -25,10 +25,10 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="bg-background py-24 overflow-hidden">
+    <section className="bg-background py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* ── Header block — dashed border matching your Figma ── */}
-        <div className=" rounded-sm p-8 mb-14 max-w-2xl">
+        <div className=" rounded-sm p-8 mb-8 md:mb-10 max-w-2xl">
           <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
             Benefits You Get When You Use Our Services
           </h2>
@@ -62,7 +62,7 @@ const ServicesSection = () => {
         </div>
 
         {/* ── Full-width hero image with rounded corners ── */}
-        <div className="relative rounded-xl overflow-hidden mb-20 h-[420px] md:h-[520px]">
+        <div className="relative rounded-xl overflow-hidden mb-10 md:mb-12 h-[420px] md:h-[520px]">
           <img
             src={serviceImage}
             alt="ReNoVIVE renovation showcase"

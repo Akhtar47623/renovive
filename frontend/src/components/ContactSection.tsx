@@ -20,7 +20,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="bg-background pt-24 pb-4 overflow-hidden">
+    <section className="bg-background pt-12 md:pt-16 pb-4 overflow-hidden">
       {/* ── Full-width dark rounded card with side margins only ── */}
       <div className="bg-foreground rounded-3xl  px-10 md:px-20 py-14 md:py-20 flex flex-col md:flex-row items-center gap-12 md:gap-0">
         {/* ── Left — heading + description + social proof ── */}

@@ -26,10 +26,10 @@ const agents = [
 
 const AgentsSection = () => {
   return (
-    <section className="bg-background py-24 overflow-hidden">
+    <section className="bg-background py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* ── Header block — mirrors PropertiesSection header style ── */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-14 gap-6">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8 md:mb-10 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
               Our Agents

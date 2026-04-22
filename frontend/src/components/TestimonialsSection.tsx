@@ -81,10 +81,10 @@ const TestimonialsSection = () => {
   const t = testimonials[current];
 
   return (
-    <section className="bg-background py-24 overflow-hidden">
+    <section className="bg-background py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* ── Header block ── */}
-        <div className="mb-14">
+        <div className="mb-8 md:mb-10">
           <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
             What's Our Client's Says
           </h2>
