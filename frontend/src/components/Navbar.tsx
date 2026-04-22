@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -13,17 +13,34 @@ const navLinks = [
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();
     navigate("/");
   };
 
+  const showBlur = scrolled || mobileOpen;
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/20 backdrop-blur-md border-b border-primary-foreground/10">
+    <header
+      className={[
+        "fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-200",
+        showBlur
+          ? "bg-primary/20 backdrop-blur-md border-b border-primary-foreground/10"
+          : "bg-transparent border-b border-transparent",
+      ].join(" ")}
+    >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link
           to="/"

@@ -18,7 +18,7 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="Modern renovated home"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-fill"
           width={1920}
           height={1080}
         />
@@ -39,8 +39,8 @@ const HeroSection = () => {
         </div>
 
         {/* Search bar */}
-        <div className="w-full max-w-4xl mt-[400px]">
-          <div className="bg-white rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-black/10 px-4 py-3 md:px-6 md:py-4 flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-0">
+        <div className="w-full max-w-4xl mt-10 sm:mt-16 md:mt-[400px]">
+          <div className="bg-white rounded-2xl md:rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-black/10 px-4 py-3 md:px-6 md:py-4 flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-0">
             {inputs.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -63,10 +63,10 @@ const HeroSection = () => {
               );
             })}
 
-            <div className="flex items-center gap-3 md:pl-4">
+            <div className="flex flex-row items-stretch gap-1 md:pl-4 w-full md:w-auto">
               <button
                 type="button"
-                className="h-11 md:h-12 px-5 md:px-6 rounded-full bg-black text-white text-[13px] font-medium flex items-center gap-2 justify-center"
+                className="h-11 md:h-12 px-5 md:px-6 rounded-full bg-black text-white text-[13px] font-medium flex items-center gap-2 justify-center flex-1 md:flex-none"
               >
                 <Search size={16} />
                 Search
@@ -74,7 +74,7 @@ const HeroSection = () => {
               <button
                 type="button"
                 aria-label="Search"
-                className="h-11 md:h-12 w-11 md:w-12 rounded-full bg-black text-white flex items-center justify-center"
+                className="h-11 md:h-12 w-11 md:w-12 rounded-full border border-black/20 bg-black text-white flex items-center justify-center"
               >
                 <ArrowUpRight size={16} />
               </button>
