@@ -29,10 +29,10 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         {/* ── Header block — dashed border matching your Figma ── */}
         <div className="mb-8 md:mb-10 max-w-2xl">
-          <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
+          <h2 className="font-sans font-semibold text-[36px] leading-[129%] tracking-[-0.02em] text-foreground mb-4 md:text-display-lg">
             Benefits You Get When You Use Our Services
           </h2>
-          <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50 max-w-lg">
+          <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 max-w-lg md:text-text-md">
             Lorem ipsum sit amet, consectetur adipiscing elit. Sit lorem
             sagittis, proin ut lectus sed ut. Enim egestas enim id duis.
           </p>
@@ -49,11 +49,11 @@ const ServicesSection = () => {
 
               {/* Content (above number) */}
               <div className="relative z-10 pt-10">
-                <h3 className="text-display-sm leading-[150%] tracking-[0.01em] font-semibold text-foreground mb-2">
+                <h3 className="font-sans font-semibold text-[24px] leading-[132%] tracking-[-0.02em] text-foreground mb-2 md:text-display-sm md:leading-[150%] md:tracking-[0.01em]">
                   {s.title.replace("&amp;", "&")}
                 </h3>
 
-                <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50">
+                <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 md:text-text-md">
                   {s.desc}
                 </p>
               </div>

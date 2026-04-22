@@ -38,7 +38,7 @@ const ContactPage = () => {
 
         {/* Title + breadcrumb pinned to bottom-left */}
         <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-8 pt-16">
-          <h1 className="text-display-lg font-semibold tracking-[-0.02em] text-white mb-3">
+          <h1 className="font-sans font-semibold text-[48px] leading-[126%] tracking-[-0.02em] text-white mb-3 text-center md:text-left md:text-display-lg">
             Contact Us
           </h1>
           <nav className="flex items-center gap-1.5 text-white/60 text-text-md leading-[150%] tracking-[0em] font-normal">

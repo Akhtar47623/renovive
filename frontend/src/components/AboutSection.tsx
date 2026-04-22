@@ -22,16 +22,16 @@ const AboutSection = ({ imageSrc, showImage = true }: AboutSectionProps) => {
         {/* ── Top row: label + text (mirrors your screenshot layout) ── */}
         <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-16 mb-10 md:mb-12">
           <div>
-            <span className="inline-block whitespace-nowrap text-display-lg tracking-[-0.02em] font-semibold text-foreground rounded-sm py-1">
+            <span className="inline-block whitespace-nowrap font-sans font-semibold text-[36px] leading-[129%] tracking-[-0.02em] text-foreground rounded-sm py-1 md:text-display-lg">
               About Us
             </span>
           </div>
 
           <div className="space-y-5">
-            <p className="text-foreground/90 text-display-sm leading-[150%] tracking-[0.01em] font-normal">
+            <p className="font-sans font-normal text-[24px] leading-[132%] tracking-[-0.02em] text-foreground/90 md:text-display-sm md:leading-[150%] md:tracking-[0.01em]">
             Our company specialise in transacting all type of properties in united state and making sure our clients enjoy a smooth and straightforward process that is tailored to their needs. We worked hard to ensure that our clients
             </p>
-            <p className="text-foreground/55 text-display-sm leading-[150%] tracking-[0.01em] font-normal">could trust the service we offer by hiring the best people for the job and you can too. We are committed to providing a unique and unforgettable property experience with our expert team, extensive network and personalized service.
+            <p className="font-sans font-normal text-[24px] leading-[132%] tracking-[-0.02em] text-foreground/55 md:text-display-sm md:leading-[150%] md:tracking-[0.01em]">could trust the service we offer by hiring the best people for the job and you can too. We are committed to providing a unique and unforgettable property experience with our expert team, extensive network and personalized service.
             </p>
 
             <div className="flex items-center gap-1 pt-2">

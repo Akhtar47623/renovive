@@ -26,7 +26,7 @@ const ContactSection = () => {
         {/* ── Left — heading + description + social proof ── */}
         <div className="flex-1 flex flex-col justify-between min-h-[380px] md:pr-20">
           <div>
-            <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-background mb-6 max-w-3xl">
+            <h2 className="font-sans font-semibold text-[36px] leading-[129%] tracking-[-0.02em] text-background mb-6 max-w-3xl md:text-display-lg">
               Still Not Sure Where to Start? Contact Us and Fill Out the Form
             </h2>
             <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-background/50 max-w-lg">

@@ -41,7 +41,7 @@ const Navbar = () => {
           : "bg-transparent border-b border-transparent",
       ].join(" ")}
     >
-      <div className="container mx-auto flex items-center justify-between h-16 px-4">
+      <div className="w-full flex items-center justify-between h-16 px-4 md:px-[118px]">
         <Link
           to="/"
           className="text-2xl font-bold text-primary-foreground tracking-wider"
@@ -49,41 +49,42 @@ const Navbar = () => {
           ReNoVIVE
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className={`text-sm font-medium transition-colors ${
-                location.pathname === link.href
-                  ? "text-accent"
-                  : "text-primary-foreground/70 hover:text-primary-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center gap-3">
-          {user ? (
-            <>
-              <Link to="/dashboard">
-                <Button variant="nav" size="sm">
-                  Dashboard
-                </Button>
-              </Link>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleSignOut}
-                className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+        {/* Desktop right cluster: nav + auth */}
+        <div className="hidden md:flex items-center gap-8 ml-auto">
+          <nav className="flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`text-sm font-medium transition-colors ${
+                  location.pathname === link.href
+                    ? "text-accent"
+                    : "text-primary-foreground/70 hover:text-primary-foreground"
+                }`}
               >
-                Sign Out
-              </Button>
-            </>
-          ) : (
-            <>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            {user ? (
+              <>
+                <Link to="/dashboard">
+                  <Button variant="nav" size="sm">
+                    Dashboard
+                  </Button>
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleSignOut}
+                  className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  Sign Out
+                </Button>
+              </>
+            ) : (
               <div className="flex items-center gap-2">
                 <Link to="/login">
                   <Button
@@ -103,8 +104,8 @@ const Navbar = () => {
                   </Button>
                 </Link>
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
 
         <button

@@ -6,11 +6,11 @@ const Footer = () => {
     <footer className="bg-background  overflow-hidden">
       <div className="relative rounded-3xl overflow-hidden min-h-[540px] flex flex-col justify-end bg-neutral-900">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center rounded-3xl"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
 
-        <div className="absolute top-0 left-0 right-0 px-10 pt-8 z-10 pointer-events-none select-none">
+        <div className="hidden sm:block absolute top-0 left-0 right-0 px-10 pt-8 z-10 pointer-events-none select-none">
           <span className="text-white/90 font-light tracking-[0.12em] text-[clamp(56px,11vw,110px)] leading-none">
             RENOVIVE
           </span>

@@ -50,10 +50,10 @@ const PropertiesSection = () => {
         {/* ── Header block — mirrors ServicesSection header style ── */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8 md:mb-10 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
+            <h2 className="font-sans font-semibold text-[36px] leading-[129%] tracking-[-0.02em] text-foreground mb-4 md:text-display-lg">
               Explore Our Latest Properties
             </h2>
-            <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50 max-w-lg">
+            <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 max-w-lg md:text-text-md">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit lorem
               sagittis, proin ut lectus sed ut. Enim egestas enim id duis.
             </p>
@@ -91,7 +91,7 @@ const PropertiesSection = () => {
 
               {/* Title row — name left, View + icon right */}
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-display-xs leading-[132%] tracking-[-0.02em] font-semibold text-foreground pr-4">
+                <h3 className="font-sans font-semibold text-[24px] leading-[132%] tracking-[-0.02em] text-foreground pr-4 md:text-display-xs">
                   {property.title}
                 </h3>
                 <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -110,7 +110,7 @@ const PropertiesSection = () => {
                   size={13}
                   className="text-foreground/40 flex-shrink-0"
                 />
-                <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50 truncate">
+                <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 truncate align-middle md:text-text-md">
                   {property.address}
                 </p>
               </div>

@@ -27,7 +27,7 @@ const AboutPage = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
         </div>
         <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-8 pt-16">
-          <h1 className="text-display-lg font-semibold tracking-[-0.02em] text-white mb-3">
+          <h1 className="font-sans font-semibold text-[48px] leading-[126%] tracking-[-0.02em] text-white mb-3 text-center md:text-left md:text-display-lg">
             About Us
           </h1>
           <nav className="flex items-center gap-1.5 text-white/60 text-text-md leading-[150%] tracking-[0em] font-normal">

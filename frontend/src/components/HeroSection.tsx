@@ -27,12 +27,12 @@ const HeroSection = () => {
 
       <div className="relative container mx-auto px-4 pt-40 flex flex-col items-center text-center">
         <div className=" animate-fade-in">
-          <h1 className="text-display-xl leading-[120%] tracking-[-0.02em] font-semibold text-white text-center mb-3">
+          <h1 className="font-sans font-semibold text-[48px] leading-[126%] tracking-[-0.02em] text-white text-center mb-3 md:text-display-xl md:leading-[120%]">
             Select Best Residence
             <br />
             That Aligns With Your Lifestyle
           </h1>
-          <p className="text-white/70 text-text-xl leading-[150%] tracking-[-0.02em] font-normal text-center max-w-2xl mx-auto">
+          <p className="font-sans font-normal text-[18px] leading-[155%] tracking-[-0.02em] text-white/70 text-center max-w-2xl mx-auto md:text-text-xl md:leading-[150%]">
             Embarking on the journey to find a new home is exciting. Selecting the right residence is crucial for
             a harmonious match with your unique lifestyle.
           </p>

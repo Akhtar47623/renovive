@@ -52,10 +52,10 @@ const FAQSection = () => {
       <div className="container mx-auto px-4">
         {/* ── Header block ── */}
         <div className="mb-8 md:mb-10">
-          <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
+          <h2 className="font-sans font-semibold text-[36px] leading-[129%] tracking-[-0.02em] text-foreground mb-4 md:text-display-lg">
             Frequently Ask Questions
           </h2>
-          <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50 max-w-sm">
+          <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 max-w-sm md:text-text-md">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
@@ -72,7 +72,7 @@ const FAQSection = () => {
                   onClick={() => toggle(faq.id)}
                 >
                   <h3
-                    className={`text-display-sm leading-[150%] tracking-[0.01em] font-semibold transition-colors duration-200 pr-6 ${
+                    className={`font-sans font-semibold text-[24px] leading-[132%] tracking-[-0.02em] md:text-display-sm md:leading-[150%] md:tracking-[0.01em] transition-colors duration-200 pr-6 ${
                       isOpen ? "text-foreground" : "text-foreground/80"
                     }`}
                   >
@@ -108,7 +108,7 @@ const FAQSection = () => {
                   }}
                 >
                   <div className="overflow-hidden">
-                    <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50 px-6 md:px-8 pb-6">
+                    <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 px-6 md:px-8 pb-6 md:text-text-md">
                       {faq.answer}
                     </p>
                   </div>

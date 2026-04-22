@@ -85,10 +85,10 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         {/* ── Header block ── */}
         <div className="mb-8 md:mb-10">
-          <h2 className="text-display-lg font-semibold tracking-[-0.02em] text-foreground mb-4">
+          <h2 className="font-sans font-semibold text-[36px] leading-[129%] tracking-[-0.02em] text-foreground mb-4 md:text-display-lg">
             What's Our Client's Says
           </h2>
-          <p className="text-text-md leading-[150%] tracking-[0em] font-normal text-foreground/50 max-w-lg">
+          <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[0em] text-foreground/50 max-w-lg md:text-text-md">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit lorem
             sagittis, proin ut lectus sed ut. Enim egestas enim id duis.
           </p>
@@ -133,7 +133,7 @@ const TestimonialsSection = () => {
                 {t.paragraphs.map((para, i) => (
                   <p
                     key={i}
-                    className="text-display-sm leading-[150%] tracking-[0.01em] font-normal text-foreground mb-6 last:mb-0"
+                    className="font-sans font-normal text-[24px] leading-[132%] tracking-[-0.02em] text-foreground mb-6 last:mb-0 md:text-display-sm md:leading-[150%] md:tracking-[0.01em]"
                   >
                     {para}
                   </p>
